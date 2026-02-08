@@ -1,17 +1,21 @@
 
+// Componente StarRating que permite calificar con estrellas
 import { useState } from "react";
 
+// Estilos del contenedor principal
 const containerStyle = {
     display: "flex",
     alignItems: "center",
     gap: "16px"
 };
 
+// Estilos del contenedor de estrellas
 const starContainerStyle = {
     display: "flex",
     gap: "4px"
 };
 
+// Componente StarRating
 export default function StarRating({
     maxRating = 5,
     color = '#fcc419',
@@ -20,6 +24,7 @@ export default function StarRating({
     onSetRating
 }) {
 
+    // Estilos del texto que muestra la calificación
     const textStyle = {
         lineHeight: "1",
         margin: "0",
@@ -27,11 +32,12 @@ export default function StarRating({
         fontSize: `${size}px`
     };
 
+    // Estado para la calificación actual
     const [rating, setRating] = useState(defaultRating);
-
+    // Estado para la calificación temporal al pasar el ratón
     const [tempRating, setTempRating] = useState(0);
 
-
+    // Maneja la calificación al hacer clic en una estrella
     function handleRating(rating) {
         setRating(rating);
         onSetRating?.(rating);
@@ -54,6 +60,7 @@ export default function StarRating({
     );
 }
 
+// Componente Star que representa una estrella individual
 function Star({ full, onRate, onHoverIn, onHoverOut, color, size }) {
     // Estilos de la estrella
     const starStyle = {

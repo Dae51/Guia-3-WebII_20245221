@@ -1,4 +1,5 @@
 
+// Componente Nav que contiene la barra de navegación
 export const Nav = ({ children }) => {
     return (
         <nav className="nav-bar">
@@ -7,6 +8,7 @@ export const Nav = ({ children }) => {
     )
 }
 
+// Componente Logo que muestra el logo de la aplicación
 export function Logo() {
     return (
         <div className="logo">
@@ -16,6 +18,7 @@ export function Logo() {
     )
 }
 
+// Componente Search que maneja la búsqueda de películas
 export function Search({ query, setQuery }) {
     return (
         <input
@@ -28,6 +31,7 @@ export function Search({ query, setQuery }) {
     )
 }
 
+// Componente NumResults que muestra el número de resultados encontrados
 export function NumResults({ movies }) {
     return (
         <p className="num-results">

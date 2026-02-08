@@ -1,14 +1,16 @@
+// Se importa useEffect y useState desde React
 import { useEffect, useState } from 'react';
-
+// Se importa el hook personalizado useFetchMovieDetails
 import { useFetchMovieDetails } from '../hooks/useFetchMovieDetails';
-
+// Se importa el componente StarRating
 import StarRating from './StarRating';
 
-
+// Componente MovieDetails que muestra los detalles de una película seleccionada
 export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }) => {
-
+    // Se utiliza el hook personalizado para obtener los detalles de la película
     const { movie, error, isLoading } = useFetchMovieDetails(selectedId);
 
+    // Detalles de la película
     const {
         Title: title,
         Year: year,
@@ -22,14 +24,15 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
         Genre: genre
     } = movie;
 
+    // Estado para la calificación del usuario
     const [userRating, setUserRating] = useState(0);
-
+    // Verifica si la película ya ha sido vista
     const isWatched = watched.some(movie => movie.imdbID === selectedId);
-
+    // Obtiene la calificación del usuario para la película vista
     const watchedUserRating = watched.find(movie => movie.imdbID ===
         selectedId)?.userRating;
 
-
+    // Maneja la adición de una película a la lista de vistas
     function handleAdd() {
         const newMovie = {
             imdbID: selectedId,
@@ -44,7 +47,7 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
         onCloseMovie();  
     }
 
-
+    // Efecto para restablecer la calificación del usuario cuando cambia la película seleccionada
     return (
         <div className="details">
             {isLoading ? (

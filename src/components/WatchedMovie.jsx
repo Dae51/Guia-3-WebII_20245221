@@ -1,8 +1,9 @@
-
+// Componente WatchedMoviesContainer que envuelve los elementos hijos
 export function WatchedMoviesContainer({ children }) {
     return <>{children}</>;
 }
 
+// Componente WatchedMoviesList que muestra la lista de películas vistas
 export function WatchedMoviesList({ watched, onDelete }) {
     return (
         <ul className="list">
@@ -13,6 +14,7 @@ export function WatchedMoviesList({ watched, onDelete }) {
     );
 }
 
+// Componente individual de película vista
 export function WatchedMovie({ movie, onDelete }) {
     return (
         <li>
@@ -37,9 +39,11 @@ export function WatchedMovie({ movie, onDelete }) {
     );
 }
 
+// Componente WatchedSummary que muestra el resumen de películas vistas
 const calculateAverage = (arr) =>
     arr.length ? arr.reduce((acc, cur) => acc + cur, 0) / arr.length : 0;
 
+// Componente WatchedSummary que muestra el resumen de películas vistas
 export function WatchedSummary({ watched }) {
     const avgImdbRating = calculateAverage(watched.map((movie) => movie.imdbRating));
     const avgUserRating = calculateAverage(watched.map((movie) => movie.userRating));

@@ -1,4 +1,5 @@
 
+// Contenedor de la lista de películas
 export const MovieList = ({ movies, onSelectMovie }) => {
     return (
         <ul className="list list-movies">
@@ -13,7 +14,7 @@ export const MovieList = ({ movies, onSelectMovie }) => {
     );
 };
 
-
+// Componente individual de película
 export const Movie = ({ movie, onSelectMovie }) => {
     return (
         <li onClick={() => onSelectMovie(movie.imdbID)}>
