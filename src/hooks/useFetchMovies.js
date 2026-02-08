@@ -27,7 +27,7 @@ export function useFetchMovies(query) {
                 setIsLoading(true) 
                 setError(null) 
 
-                const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`) // usa https si te da error
+                const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`) // usa https si te da error
 
                 if (!response.ok)
                     throw new Error("Error al cargar películas")
